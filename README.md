@@ -14,7 +14,7 @@
 
 - has_many :groups, through: :users_groups
 - has_many :messages
-- has_many :users_schools
+- has_many :users_groups
 
 ## groups テーブル
 
@@ -26,7 +26,7 @@
 
 - has_many :users, through: :users_groups
 - has_many :messages
-- has_many :users_schools
+- has_many :users_groups
 
 ## users_groups テーブル
 
