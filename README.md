@@ -14,6 +14,7 @@
 
 - has_many :groups, through: :users_groups
 - has_many :messages
+- has_many :users_schools
 
 ## groups テーブル
 
@@ -25,6 +26,7 @@
 
 - has_many :users, through: :users_groups
 - has_many :messages
+- has_many :users_schools
 
 ## users_groups テーブル
 
@@ -46,7 +48,7 @@
 
 | Column    | Type    | Options                                      |
 | --------- | ------- | -------------------------------------------- |
-| text      | text    | null: false                                  |
+| text      | text    |                                              |
 | image_url | text    |                                              |
 | user_id   | integer | null: false, foreign_key: true, unique: true |
 | group_id  | integer | null: false, foreign_key: true, unique: true |
