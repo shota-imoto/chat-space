@@ -4,14 +4,15 @@
       .side-bar__user-name__user-box--name
         =current_user.name
       .side-bar__user-name__user-box--btn
-        =link_to "#" do
+        =link_to new_group_path do
           =icon('far', 'edit', class: "side-bar__user-name__user-box--btn--icon")
           %span<>
         =link_to edit_user_path(current_user) do
           =icon('fas', 'cog', class: "side-bar__user-name__user-box--btn--icon side-bar__user-name__user-box--btn--icon--margin")
   .side-bar__group-list
-    =link_to "#", class: "side-bar__group-list--group-box" do
-      %p{class: "side-bar__group-list--group-box--name"}
-        techcamp
-      %p{class: "side-bar__group-list--group-box--message"}
-        まだメッセージがありませーーん
+    - current_user.group.each do |group|
+      =link_to "#", class: "side-bar__group-list--group-box" do
+        %p{class: "side-bar__group-list--group-box--name"}
+          =group.name
+        %p{class: "side-bar__group-list--group-box--message"}
+          まだメッセージがありませーーん
