@@ -1,0 +1,169 @@
+* {
+  box-sizing: border-box;
+}
+
+$btn-color: #38aef0;
+$assist-color: #999999;
+$name-color: #333333;
+
+@mixin font_config($color, $size) {
+  color: $color;
+  font-size: $size;
+}
+
+@mixin link_config {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@mixin block_size($height, $width) {
+  height: $height;
+  width: $width;
+}
+
+@mixin vertical_center {
+  display: flex;
+  align-items: center;
+}
+
+.wrapper {
+  display: flex;
+}
+
+.side-bar {
+  width: 300px;
+  &__user-name {
+    background-color: #253141;
+    height: 100px;
+    @include vertical_center;
+    &__user-box {
+      @include block_size(20px, 260px);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      &--name {
+        @include font_config(white, 16px);
+        font-weight: bold;
+      }
+      &--btn {
+        width: 60px;
+        margin-left: 5px;
+        text-align: right;
+        &--icon {
+          @include link_config;
+          color: white;
+          &--margin {
+            margin-left: 5px;
+          }
+        }
+      }
+    }
+  }
+  &__group-list {
+    background-color: #2f3e51;
+    height: calc(100vh - 100px);
+    padding: 20px 20px 0;
+    &--group-box {
+      width: 100%;
+      @include link_config;
+      margin-bottom: 40px;
+      &--name {
+        margin-bottom: 5px;
+        @include font_config(white, 15px);
+        font-style: bold;
+      }
+      &--message {
+        @include font_config(white, 11px);
+        font-style: bold;
+      }
+    }
+  }
+}
+
+.chat-space {
+  width: calc(100vw - 300px);
+  &__group-info {
+    background-color: white;
+    height: 99px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    justify-content: space-between;
+    &__display {
+      margin: 35px 0 0 40px;
+      &--name {
+        @include font_config($name-color, 20px);
+      }
+      &--member {
+        margin-top: 15px;
+        @include font_config($assist-color, 12px);
+      }
+    }
+    &--edit {
+      @include block_size(40px, 72px);
+      margin: 28px 40px;
+      padding: 0 20px;
+      border: 1px solid $btn-color;
+      @include link_config;
+      @include font_config($btn-color, 16px);
+      @include vertical_center();
+    }
+  }
+  &__message-list {
+    background-color: #fafafa;
+    height: calc(100vh - 100px - 90px);
+    margin: 0;
+    padding: 35px 40px;
+    &__message-box {
+      margin-bottom: 46px;
+      &__title {
+        display: flex;
+        &--name {
+          @include font_config($name-color, 16px);
+          font-weight: bold;
+        }
+        &--created_at {
+          margin-left: 10px;
+          @include font_config($assist-color, 12px);
+        }
+      }
+      &__text {
+        margin-top: 12px;
+        @include font_config(#434a54, 14px);
+      }
+    }
+  }
+  &__message-form {
+    background-color: #d2d2d2;
+    @include block_size(90px, 100%);
+    padding: 0 40px;
+    @include vertical_center;
+    justify-content: space-between;
+    &__box {
+      width: 100vw;
+      @include vertical_center;
+      position: relative;
+      &--form {
+        @include block_size(50px, 100%);
+        padding-left: 10px;
+        color: $assist-color;
+      }
+      &--icon {
+        position: absolute;
+        right: 10px;
+        @include link_config;
+        input {
+          display: none;
+        }
+      }
+    }
+    &--send {
+      background-color: $btn-color;
+      @include block_size(50px, 100px);
+      margin-left: 15px;
+      padding: 0 30px;
+      @include link_config;
+      @include vertical_center;
+      @include font_config(white, 16px);
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.chat-space
+  .chat-space__group-info
+    .chat-space__group-info__display
+      .chat-space__group-info__display--name
+        test
+      .chat-space__group-info__display--member
+        Member：masa
+    =link_to "Edit", "#", class: "chat-space__group-info--edit"
+  .chat-space__message-list
+    .chat-space__message-list__message-box
+      .chat-space__message-list__message-box__title
+        .chat-space__message-list__message-box__title--name
+          masa
+        .chat-space__message-list__message-box__title--created_at
+          2019/11/20(Wed) 17:43:01
+      .chat-space__message-list__message-box__text
+        おはようさん
+    .chat-space__message-list__message-box
+      .chat-space__message-list__message-box__title
+        .chat-space__message-list__message-box__title--name
+          masa
+        .chat-space__message-list__message-box__title--created_at
+          2020/04/18(Sat) 18:01:23
+      .chat-space__message-list__message-box__text
+        今日は勉強いっぱいした
+
+  %form.chat-space__message-form
+    .chat-space__message-form__box
+      %input{type: "text_field", value: "type a message", class: "chat-space__message-form__box--form"}
+      %label{class: "chat-space__message-form__box--icon"}
+        =icon("fas", "image")
+        %input{type: "file"}
+    .chat-space__message-form--send
+      Send
