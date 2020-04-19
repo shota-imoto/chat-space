@@ -2,10 +2,6 @@
   box-sizing: border-box;
 }
 
-$btn-color: #38aef0;
-$assist-color: #999999;
-$name-color: #333333;
-
 @mixin font_config($color, $size) {
   color: $color;
   font-size: $size;
@@ -33,7 +29,7 @@ $name-color: #333333;
 .side-bar {
   width: 300px;
   &__user-name {
-    background-color: #253141;
+    background-color: $side_blue_dark;
     height: 100px;
     @include vertical_center;
     &__user-box {
@@ -42,7 +38,7 @@ $name-color: #333333;
       display: flex;
       justify-content: space-between;
       &--name {
-        @include font_config(white, 16px);
+        @include font_config($white, 16px);
         font-weight: bold;
       }
       &--btn {
@@ -60,7 +56,7 @@ $name-color: #333333;
     }
   }
   &__group-list {
-    background-color: #2f3e51;
+    background-color: $side_blue_light;
     height: calc(100vh - 100px);
     padding: 20px 20px 0;
     &--group-box {
@@ -91,20 +87,20 @@ $name-color: #333333;
     &__display {
       margin: 35px 0 0 40px;
       &--name {
-        @include font_config($name-color, 20px);
+        @include font_config($black, 20px);
       }
       &--member {
         margin-top: 15px;
-        @include font_config($assist-color, 12px);
+        @include font_config($light_gray, 12px);
       }
     }
     &--edit {
       @include block_size(40px, 72px);
       margin: 28px 40px;
       padding: 0 20px;
-      border: 1px solid $btn-color;
+      border: 1px solid $light_blue;
       @include link_config;
-      @include font_config($btn-color, 16px);
+      @include font_config($light_blue, 16px);
       @include vertical_center();
     }
   }
@@ -118,17 +114,17 @@ $name-color: #333333;
       &__title {
         display: flex;
         &--name {
-          @include font_config($name-color, 16px);
+          @include font_config($black, 16px);
           font-weight: bold;
         }
         &--created_at {
           margin-left: 10px;
-          @include font_config($assist-color, 12px);
+          @include font_config($light_gray, 12px);
         }
       }
       &__text {
         margin-top: 12px;
-        @include font_config(#434a54, 14px);
+        @include font_config($black, 14px);
       }
     }
   }
@@ -145,7 +141,7 @@ $name-color: #333333;
       &--form {
         @include block_size(50px, 100%);
         padding-left: 10px;
-        color: $assist-color;
+        color: $light_gray;
       }
       &--icon {
         position: absolute;
@@ -157,7 +153,7 @@ $name-color: #333333;
       }
     }
     &--send {
-      background-color: $btn-color;
+      background-color: $light_blue;
       @include block_size(50px, 100px);
       margin-left: 15px;
       padding: 0 30px;
