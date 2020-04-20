@@ -1,0 +1,2 @@
+class ChangeMessagesImageUrl < ApplicationRecord
+end
