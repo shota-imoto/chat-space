@@ -2,33 +2,21 @@
   .chat-space__group-info
     .chat-space__group-info__display
       .chat-space__group-info__display--name
-        test
+        =@group.name
       .chat-space__group-info__display--member
-        Member：masa
-    =link_to "Edit", "#", class: "chat-space__group-info--edit"
+        %a "Member：
+        - @group.users.each do |user|
+          =user.name
+          %a,
+    =link_to edit_group_path(@group), class: "chat-space__group-info--edit" do
+      Edit
   .chat-space__message-list
-    .chat-space__message-list__message-box
-      .chat-space__message-list__message-box__title
-        .chat-space__message-list__message-box__title--name
-          masa
-        .chat-space__message-list__message-box__title--created_at
-          2019/11/20(Wed) 17:43:01
-      .chat-space__message-list__message-box__text
-        おはようさん
-    .chat-space__message-list__message-box
-      .chat-space__message-list__message-box__title
-        .chat-space__message-list__message-box__title--name
-          masa
-        .chat-space__message-list__message-box__title--created_at
-          2020/04/18(Sat) 18:01:23
-      .chat-space__message-list__message-box__text
-        今日は勉強いっぱいした
-
-  %form.chat-space__message-form
-    .chat-space__message-form__box
-      %input{type: "text_field", value: "type a message", class: "chat-space__message-form__box--form"}
-      %label{type: "file_field", class: "chat-space__message-form__box--icon"}
-        =icon("fas", "image")
-        %input{type: "file"}
-    .chat-space__message-form--send
-      Send
+    =render @messages
+  .chat-space__message-form
+    =form_for [@group, @message] do |f|
+      .chat-space__message-form__box
+        =f.text_field :text, placeholder: "type a message", class: "chat-space__message-form__box--text"
+        =f.label :image, class: "chat-space__message-form__box__image" do
+          =icon("fas", "image")
+          =f.file_field :image, class: "chat-space__message-form__box__image--file"
+      =f.submit "Send", class: "chat-space__message-form--send"

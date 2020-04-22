@@ -1,0 +1,9 @@
+.chat-space__message-list__message-box
+  .chat-space__message-list__message-box__title
+    .chat-space__message-list__message-box__title--name
+      =message.user.name
+    .chat-space__message-list__message-box__title--created_at
+      =message.created_at
+  .chat-space__message-list__message-box__text
+    =image_tag message.image if message.image.present?
+    =message.text

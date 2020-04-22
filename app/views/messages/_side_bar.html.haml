@@ -11,8 +11,8 @@
           =icon('fas', 'cog', class: "side-bar__user-name__user-box--btn--icon side-bar__user-name__user-box--btn--icon--margin")
   .side-bar__group-list
     - current_user.group.each do |group|
-      =link_to "#", class: "side-bar__group-list--group-box" do
+      =link_to group_messages_path(group), class: "side-bar__group-list--group-box" do
         %p{class: "side-bar__group-list--group-box--name"}
           =group.name
         %p{class: "side-bar__group-list--group-box--message"}
-          まだメッセージがありませーーん
+          =group.show_last_message
