@@ -2,7 +2,12 @@ $(function () {
   function buildHTML(message) {
     if (message.image) {
       var html = `<div class="chat-space__message-list__message-box">
-        <div class="chat-space__message-list__message-box__title"><div class="chat-space__message-list__message-box__title--name">${message.user_name}</div><div class="chat-space__message-list__message-box__title--created_at">${message.created_at}</div>
+        <div class="chat-space__message-list__message-box__title"><div class="chat-space__message-list__message-box__title--name">
+        ${message.user_name}
+        </div>
+        <div class="chat-space__message-list__message-box__title--created_at">
+        ${message.created_at}
+        </div>
         </div>
         <div class="chat-space__message-list__message-box__text">
         <p>${message.text}</p>
@@ -11,7 +16,11 @@ $(function () {
         </div>`;
     } else {
       var html = `<div class="chat-space__message-list__message-box">
-        <div class="chat-space__message-list__message-box__title"><div class="chat-space__message-list__message-box__title--name">${message.user_name}</div><div class="chat-space__message-list__message-box__title--created_at">${message.created_at}</div>
+        <div class="chat-space__message-list__message-box__title"><div class="chat-space__message-list__message-box__title--name">
+          ${message.user_name}
+        </div><div class="chat-space__message-list__message-box__title--created_at">
+          ${message.created_at}
+          </div>
         </div>
         <div class="chat-space__message-list__message-box__text">
         <p>${message.text}</p>
@@ -34,18 +43,18 @@ $(function () {
       dataType: "json",
       processData: false,
       contentType: false,
-    }).done(function (data) {
-      var html = buildHTML(data);
-      console.log(data);
-      $(".chat-space__message-list").append(html);
-      $("form")[0].reset();
-      $(".chat-space__message-list").animate({
-        scrollTop: $(".chat-space__message-list")[0].scrollHeight,
-      });
-      $(".chat-space__message-form--send").prop("disabled", false);
-    });
-    .fail(function(){
-      alert("メッセージ送信に失敗しました")
     })
+      .done(function (data) {
+        var html = buildHTML(data);
+        $(".chat-space__message-list").append(html);
+        $("form")[0].reset();
+        $(".chat-space__message-list").animate({
+          scrollTop: $(".chat-space__message-list")[0].scrollHeight,
+        });
+        $(".chat-space__message-form--send").prop("disabled", false);
+      })
+      .fail(function () {
+        alert("メッセージ送信に失敗しました");
+      });
   });
 });
