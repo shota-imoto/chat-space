@@ -44,5 +44,8 @@ $(function () {
       });
       $(".chat-space__message-form--send").prop("disabled", false);
     });
+    .fail(function(){
+      alert("メッセージ送信に失敗しました")
+    })
   });
 });
