@@ -39,6 +39,9 @@ $(function () {
       console.log(data);
       $(".chat-space__message-list").append(html);
       $("form")[0].reset();
+      $(".chat-space__message-list").animate({
+        scrollTop: $(".chat-space__message-list")[0].scrollHeight,
+      });
     });
   });
 });
