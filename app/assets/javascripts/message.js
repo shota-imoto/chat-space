@@ -42,6 +42,7 @@ $(function () {
       $(".chat-space__message-list").animate({
         scrollTop: $(".chat-space__message-list")[0].scrollHeight,
       });
+      $(".chat-space__message-form--send").prop("disabled", false);
     });
   });
 });
