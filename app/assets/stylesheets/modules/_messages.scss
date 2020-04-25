@@ -109,6 +109,7 @@
     height: calc(100vh - 100px - 90px);
     margin: 0;
     padding: 35px 40px;
+    overflow: scroll;
     &__message-box {
       margin-bottom: 46px;
       &__title {
