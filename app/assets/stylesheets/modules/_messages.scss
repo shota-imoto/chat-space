@@ -58,11 +58,11 @@
   &__group-list {
     background-color: $side_blue_light;
     height: calc(100vh - 100px);
-    padding: 20px 20px 0;
     &--group-box {
       width: 100%;
       @include link_config;
-      margin-bottom: 40px;
+      margin: 20px;
+      display: inline-block;
       &--name {
         margin-bottom: 5px;
         @include font_config(white, 15px);
@@ -170,45 +170,4 @@
     width: 100%;
     display: flex;
   }
-  // &__message-form {
-  //   background-color: #d2d2d2;
-  //   height: 90px;
-  //   width: calc;
-  //   @include block_size(90px, 100vw- 300px);
-  //   padding: 0 40px;
-  //   @include vertical_center;
-  //   &__box {
-  //     width: 100%;
-  //     display: flex;
-  //     justify-content: space-between;
-  //     &__text {
-  //       @include vertical_center;
-  //       position: relative;
-  //       width: 100%;
-  //       &--form {
-  //         @include block_size(50px, 100%);
-  //         padding-left: 10px;
-  //         color: $light_gray;
-  //       }
-  //       &--icon {
-  //         position: absolute;
-  //         right: 10px;
-  //         @include link_config;
-  //         input {
-  //           display: none;
-  //         }
-  //       }
-  //     }
-
-  //     &--send {
-  //       background-color: $light_blue;
-  //       @include block_size(50px, 100px);
-  //       margin-left: 15px;
-  //       padding: 0 30px;
-  //       @include link_config;
-  //       @include vertical_center;
-  //       @include font_config(white, 16px);
-  //     }
-  //   }
-  // }
 }
