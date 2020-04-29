@@ -71,3 +71,5 @@ gem 'devise'
 gem 'pry-byebug'
 gem 'mini_magick'
 gem 'carrierwave'
+
+ gem 'fog-aws'
